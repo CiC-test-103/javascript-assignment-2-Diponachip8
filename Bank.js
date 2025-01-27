@@ -37,7 +37,7 @@ class Account {
     }
     // Example: withdrawal(amount)
     // example data to be stored in transactionHistory { transactionType: 'Withdrawal', amount: 200 }
-    withdraw(amount ){
+    withdraw(amount){
         this.balance -= amount;
         if(amount > this.balance){
             console.log("Insufficient funds...")
