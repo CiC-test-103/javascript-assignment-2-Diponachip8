@@ -58,7 +58,7 @@ class Account {
      this.balance -= amount;
      this.transactionHistory.push({
          transactionType: "Transfer",
-        Amount: 300,
+        amount: 300,
          to: recipientAccount.name,
      });
 
