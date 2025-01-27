@@ -32,18 +32,17 @@ class Account {
     deposit(amount){
         this.balance += amount;
 
-        this.transactionHistory.push({transactionType: "Deposit", amount: 500});
+        this.transactionHistory.push({transactionType: "Deposit", amount });
 
     }
     // Example: withdrawal(amount)
     // example data to be stored in transactionHistory { transactionType: 'Withdrawal', amount: 200 }
     withdraw(amount){
-        this.balance -= amount;
         if(amount > this.balance){
             console.log("Insufficient funds...")
         } else {
-
-        this.transactionHistory.push({transactionType: "Withdrawal", amount: 200});
+        this.balance -= amount;
+        this.transactionHistory.push({transactionType: "Withdrawal", amount });
     
         }
     
@@ -58,14 +57,14 @@ class Account {
      this.balance -= amount;
      this.transactionHistory.push({
          transactionType: "Transfer",
-        amount: 300,
+        amount ,
          to: recipientAccount.name,
      });
 
      recipientAccount.balance += amount;
      recipientAccount.transactionHistory.push({
          transactionType: "Received",
-         amount: 300,
+         amount ,
          from: this.name,
      });
 
