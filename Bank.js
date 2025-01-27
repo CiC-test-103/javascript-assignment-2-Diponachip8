@@ -7,7 +7,15 @@ class Bank {
 
     // Add methods here:
     // Example: createAccount(name, initialDeposit)
+        createAccount(name, initialDeposit = 0){
 
+        const newAccount = new Account(name, initialDeposit); 
+        this.accounts.push(newAccount);
+
+        return newAccount;
+     }
+    
+    
 }
 
 // Account Class: Represents a single user's account
@@ -19,18 +27,59 @@ class Account {
     }
 
     // Add methods here:
-    // Example: deposit(amount) 
+    // Example: deposit(amounta 
     // example data to be stored in transactionHistory { transactionType: 'Deposit', amount: 500 }
+    deposit(amount ){
+        this.balance += amount;
 
+        this.transactionHistory.push({transactionType: "Deposit", Amount: 500});
+
+    }
     // Example: withdraw(amount)
     // example data to be stored in transactionHistory { transactionType: 'Withdrawal', amount: 200 }
+    withdraw(amount ){
+        this.balance -= amount;
+        if(amount > this.balance){
+            console.log("Insufficient funds...")
+        } else {
+
+        this.transactionHistory.push({transactionType: "Withdraw", Amount: 200});
+    
+        }
+    
+    }
 
     // Example: transfer(amount, recipientAccount)
     // example data to be stored in transactionHistory:
     // for account sending { transactionType: 'Transfer', amount: 300, to: recipientName }
     // for account recieving { transactionType: 'Received', amount: 300, from: senderName }
+        transfer(amount, recipientAccount){
+    
+     this.balance -= amount;
+     this.transactionHistory.push({
+         transactionType: "Transfer",
+        Amount: 300,
+         to: recipientAccount.name,
+     });
+
+     recipientAccount.balance += amount;
+     recipientAccount.transactionHistory.push({
+         transactionType: "Received",
+         Amount: 300,
+         from: this.name,
+     });
+
+
+
+
+        }
     
     // Example: checkBalance()
+    checkBalance(){
+
+        console.log(this.balance);
+        return this.balance;
+    }
 }
 
 //<-------------------------------DO NOT WRITE BELOW THIS LINE------------------------------>
