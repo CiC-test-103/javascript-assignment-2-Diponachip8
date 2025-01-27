@@ -27,9 +27,9 @@ class Account {
     }
 
     // Add methods here:
-    // Example: deposit(amounta 
+    // Example: deposit(amount) 
     // example data to be stored in transactionHistory { transactionType: 'Deposit', amount: 500 }
-    deposit(amount ){
+    deposit(amount){
         this.balance += amount;
 
         this.transactionHistory.push({transactionType: "Deposit", Amount: 500});
